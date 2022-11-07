@@ -1,0 +1,21 @@
+{
+  "$id": "ecomovement_nearbyFacilities",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "description": "",
+  "displayName": "Nearby Facilities",
+  "group": "NONE",
+  "localization": "OVERRIDABLE",
+  "type": {
+    "listType": {
+      "typeId": "string",
+      "maxLength": 1000,
+      "type": {
+        "stringType": {
+          "maxLength": 512,
+          "stereotype": "SIMPLE"
+        }
+      }
+    }
+  },
+  "typeId": "list"
+}

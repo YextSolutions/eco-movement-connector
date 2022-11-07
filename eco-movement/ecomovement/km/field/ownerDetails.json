@@ -1,0 +1,9 @@
+{
+  "$id": "ecomovement_ownerDetails",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "description": "",
+  "displayName": "Owner Details",
+  "group": "NONE",
+  "localization": "OVERRIDABLE",
+  "typeId": "ecomovement_operatorDetails"
+}
