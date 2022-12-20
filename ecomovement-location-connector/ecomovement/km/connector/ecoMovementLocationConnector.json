@@ -9,7 +9,7 @@
         "requestType": "GET",
         "url": "https://api.eco-movement.com/api/ocpi/cpo/2.1.1/locations",
         "authentication": {
-          "bearerToken": "${{km/connector.ecomovement_ecoMovementLocationConnector.api_bearer_token}}"
+          "bearerToken": "${{apiToken}}"
         },
         "paginationControl": {
           "offsetPagination": {
