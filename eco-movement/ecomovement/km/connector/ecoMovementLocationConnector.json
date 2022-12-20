@@ -1,7 +1,7 @@
 {
-  "$id": "ecomovement_ecoMovementLocationConnectorSoT",
+  "$id": "ecomovement_ecoMovementLocationConnector",
   "$schema": "https://schema.yext.com/config/km/connector/v3",
-  "displayName": "Eco-Movement Location SoT",
+  "displayName": "Eco-Movement Location",
   "entityType": "location",
   "source": {
     "sourceConfig": {
@@ -9,14 +9,14 @@
         "requestType": "GET",
         "url": "https://api.eco-movement.com/api/ocpi/cpo/2.1.1/locations",
         "authentication": {
-          "bearerToken": "${{km/connector.ecomovement_ecoMovementLocationConnectorSoT.api_bearer_token}}"
+          "bearerToken": "${{apiToken}}"
         },
         "paginationControl": {
           "offsetPagination": {
             "offsetKey": "offset",
             "limitKey": "limit",
             "offsetStartValue": 0,
-            "limitValue": 100
+            "limitValue": 25
           }
         },
         "headers": {},
