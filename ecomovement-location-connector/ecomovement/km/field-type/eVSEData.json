@@ -1,0 +1,150 @@
+{
+  "$id": "ecomovement_eVSEData",
+  "$schema": "https://schema.yext.com/config/km/field-type/v1",
+  "description": "",
+  "displayName": "EVSE Data",
+  "type": {
+    "structType": {
+      "property": [
+        {
+          "name": "iD",
+          "displayName": "ID",
+          "isRequired": false,
+          "typeId": "string",
+          "type": {
+            "stringType": {
+              "stereotype": "SIMPLE",
+              "maxLength": 100000
+            }
+          }
+        },
+        {
+          "name": "capabilities",
+          "displayName": "Capabilities",
+          "isRequired": false,
+          "typeId": "list",
+          "type": {
+            "listType": {
+              "typeId": "string",
+              "maxLength": 1000,
+              "type": {
+                "stringType": {
+                  "maxLength": 100000,
+                  "stereotype": "SIMPLE"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "physicalReference",
+          "displayName": "Physical Reference",
+          "isRequired": false,
+          "typeId": "string",
+          "type": {
+            "stringType": {
+              "stereotype": "SIMPLE",
+              "maxLength": 100000
+            }
+          }
+        },
+        {
+          "name": "eVSEID",
+          "displayName": "EVSE ID",
+          "isRequired": false,
+          "typeId": "string",
+          "type": {
+            "stringType": {
+              "stereotype": "SIMPLE",
+              "maxLength": 100000
+            }
+          }
+        },
+        {
+          "name": "hardwareManufacturer",
+          "displayName": "Hardware Manufacturer ",
+          "isRequired": false,
+          "typeId": "string",
+          "type": {
+            "stringType": {
+              "stereotype": "SIMPLE",
+              "maxLength": 100000
+            }
+          }
+        },
+        {
+          "name": "hardwareClass",
+          "displayName": "Hardware Class",
+          "isRequired": false,
+          "typeId": "string",
+          "type": {
+            "stringType": {
+              "stereotype": "SIMPLE",
+              "maxLength": 100000
+            }
+          }
+        },
+        {
+          "name": "hardwareModel",
+          "displayName": "Hardware Model",
+          "isRequired": false,
+          "typeId": "string",
+          "type": {
+            "stringType": {
+              "stereotype": "SIMPLE",
+              "maxLength": 100000
+            }
+          }
+        },
+        {
+          "name": "cPOExternalID",
+          "displayName": "CPO External ID",
+          "isRequired": false,
+          "typeId": "string",
+          "type": {
+            "stringType": {
+              "stereotype": "SIMPLE",
+              "maxLength": 100000
+            }
+          }
+        },
+        {
+          "name": "eVSEParkingRestrictions",
+          "displayName": "EVSE Parking Restrictions",
+          "isRequired": false,
+          "typeId": "list",
+          "type": {
+            "listType": {
+              "typeId": "string",
+              "maxLength": 1000,
+              "type": {
+                "stringType": {
+                  "maxLength": 100000,
+                  "stereotype": "SIMPLE"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "connector1",
+          "displayName": "Connector 1",
+          "isRequired": false,
+          "typeId": "ecomovement_connectorData"
+        },
+        {
+          "name": "connector2",
+          "displayName": "Connector 2",
+          "isRequired": false,
+          "typeId": "ecomovement_connectorData"
+        },
+        {
+          "name": "connector3",
+          "displayName": "Connector 3",
+          "isRequired": false,
+          "typeId": "ecomovement_connectorData"
+        }
+      ]
+    }
+  }
+}

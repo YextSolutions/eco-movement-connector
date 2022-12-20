@@ -1,0 +1,12 @@
+{
+  "$id": "ecomovement_chargingWhenClosed",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "description": "",
+  "displayName": "Charging when closed",
+  "group": "NONE",
+  "localization": "OVERRIDABLE",
+  "type": {
+    "booleanType": {}
+  },
+  "typeId": "boolean"
+}
