@@ -797,7 +797,7 @@
     {
       "addColumn": {
         "newColumnHeader": "official location name",
-        "columnValue": "Eco-movement Test Location"
+        "columnValue": "${{brandName}}"
       }
     }
   ],
