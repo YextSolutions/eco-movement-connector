@@ -1,9 +1,0 @@
-{
-  "$id": "ecomovement_eVSE2",
-  "$schema": "https://schema.yext.com/config/km/field/v1",
-  "description": "",
-  "displayName": "EVSE 2",
-  "group": "NONE",
-  "localization": "OVERRIDABLE",
-  "typeId": "ecomovement_eVSEData"
-}

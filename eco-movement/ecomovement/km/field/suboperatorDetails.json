@@ -1,9 +1,0 @@
-{
-  "$id": "ecomovement_suboperatorDetails",
-  "$schema": "https://schema.yext.com/config/km/field/v1",
-  "description": "",
-  "displayName": "Suboperator Details",
-  "group": "NONE",
-  "localization": "OVERRIDABLE",
-  "typeId": "ecomovement_operatorDetails"
-}
