@@ -1,87 +1,87 @@
 {
-  "$id": "ecomovement_connectorData",
-  "$schema": "https://schema.yext.com/config/km/field-type/v1",
-  "description": "",
-  "displayName": "Connector Data",
-  "type": {
-    "structType": {
-      "property": [
-        {
-          "name": "iD",
-          "displayName": "ID",
-          "isRequired": false,
-          "typeId": "string",
-          "type": {
-            "stringType": {
-              "stereotype": "SIMPLE",
-              "maxLength": 100000
-            }
-          }
-        },
-        {
-          "name": "standard",
-          "displayName": "Standard",
-          "isRequired": false,
-          "typeId": "string",
-          "type": {
-            "stringType": {
-              "stereotype": "SIMPLE",
-              "maxLength": 100000
-            }
-          }
-        },
-        {
-          "name": "format",
-          "displayName": "Format",
-          "isRequired": false,
-          "typeId": "string",
-          "type": {
-            "stringType": {
-              "stereotype": "SIMPLE",
-              "maxLength": 100000
-            }
-          }
-        },
-        {
-          "name": "powerType",
-          "displayName": "Power Type",
-          "isRequired": false,
-          "typeId": "string",
-          "type": {
-            "stringType": {
-              "stereotype": "SIMPLE",
-              "maxLength": 100000
-            }
-          }
-        },
-        {
-          "name": "voltage",
-          "displayName": "Voltage",
-          "isRequired": false,
-          "typeId": "decimal",
-          "type": {
-            "decimalType": {}
-          }
-        },
-        {
-          "name": "amperage",
-          "displayName": "Amperage",
-          "isRequired": false,
-          "typeId": "decimal",
-          "type": {
-            "decimalType": {}
-          }
-        },
-        {
-          "name": "maxPower",
-          "displayName": "Max Power",
-          "isRequired": false,
-          "typeId": "decimal",
-          "type": {
-            "decimalType": {}
-          }
+    "$id": "ecomovement_connectorData",
+    "$schema": "https://schema.yext.com/config/km/field-type/v1",
+    "description": "",
+    "displayName": "Connector Data",
+    "type": {
+        "structType": {
+            "property": [
+                {
+                    "name": "iD",
+                    "displayName": "ID",
+                    "isRequired": false,
+                    "typeId": "string",
+                    "type": {
+                        "stringType": {
+                            "stereotype": "SIMPLE",
+                            "maxLength": 100000
+                        }
+                    }
+                },
+                {
+                    "name": "standard",
+                    "displayName": "Standard",
+                    "isRequired": false,
+                    "typeId": "string",
+                    "type": {
+                        "stringType": {
+                            "stereotype": "SIMPLE",
+                            "maxLength": 100000
+                        }
+                    }
+                },
+                {
+                    "name": "format",
+                    "displayName": "Format",
+                    "isRequired": false,
+                    "typeId": "string",
+                    "type": {
+                        "stringType": {
+                            "stereotype": "SIMPLE",
+                            "maxLength": 100000
+                        }
+                    }
+                },
+                {
+                    "name": "powerType",
+                    "displayName": "Power Type",
+                    "isRequired": false,
+                    "typeId": "string",
+                    "type": {
+                        "stringType": {
+                            "stereotype": "SIMPLE",
+                            "maxLength": 100000
+                        }
+                    }
+                },
+                {
+                    "name": "voltage",
+                    "displayName": "Voltage",
+                    "isRequired": false,
+                    "typeId": "decimal",
+                    "type": {
+                        "decimalType": {}
+                    }
+                },
+                {
+                    "name": "amperage",
+                    "displayName": "Amperage",
+                    "isRequired": false,
+                    "typeId": "decimal",
+                    "type": {
+                        "decimalType": {}
+                    }
+                },
+                {
+                    "name": "maxPower",
+                    "displayName": "Max Power",
+                    "isRequired": false,
+                    "typeId": "decimal",
+                    "type": {
+                        "decimalType": {}
+                    }
+                }
+            ]
         }
-      ]
     }
-  }
 }

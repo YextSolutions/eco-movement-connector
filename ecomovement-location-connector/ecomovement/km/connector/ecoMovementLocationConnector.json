@@ -1,2013 +1,2019 @@
 {
-  "$id": "ecomovement_ecoMovementLocationConnector",
-  "$schema": "https://schema.yext.com/config/km/connector/v3",
-  "displayName": "Eco-Movement Location Connector",
-  "entityType": "location",
-  "source": {
-    "sourceConfig": {
-      "apiPullConfig": {
-        "requestType": "GET",
-        "url": "https://api.eco-movement.com/api/ocpi/cpo/2.1.1/locations",
-        "authentication": {
-          "bearerToken": "${{apiToken}}"
+    "$id": "ecomovement_ecoMovementLocationConnector",
+    "$schema": "https://schema.yext.com/config/km/connector/v4",
+    "displayName": "Eco-Movement Location Connector",
+    "entityTypes": [
+        "location"
+    ],
+    "source": {
+        "sourceConfig": {
+            "apiPullConfig": {
+                "requestType": "GET",
+                "url": "https://api.eco-movement.com/api/ocpi/cpo/2.1.1/locations",
+                "authentication": {
+                    "bearerToken": "${{apiToken}}"
+                },
+                "paginationControl": {
+                    "offsetPagination": {
+                        "offsetKey": "offset",
+                        "limitKey": "limit",
+                        "offsetStartValue": 0,
+                        "limitValue": 25
+                    }
+                },
+                "headers": {},
+                "queryParams": {},
+                "dataFormat": "JSON"
+            }
         },
-        "paginationControl": {
-          "offsetPagination": {
-            "offsetKey": "offset",
-            "limitKey": "limit",
-            "offsetStartValue": 0,
-            "limitValue": 25
-          }
+        "baseSelector": {
+            "type": "JSON",
+            "header": "Entity Container",
+            "path": "data"
         },
-        "headers": {},
-        "queryParams": {},
-        "dataFormat": "JSON"
-      }
+        "selectors": [
+            {
+                "type": "JSON",
+                "header": "id",
+                "path": "id"
+            },
+            {
+                "type": "JSON",
+                "header": "type",
+                "path": "type"
+            },
+            {
+                "type": "JSON",
+                "header": "address",
+                "path": "address"
+            },
+            {
+                "type": "JSON",
+                "header": "city",
+                "path": "city"
+            },
+            {
+                "type": "JSON",
+                "header": "postal_code",
+                "path": "postal_code"
+            },
+            {
+                "type": "JSON",
+                "header": "country",
+                "path": "country"
+            },
+            {
+                "type": "JSON",
+                "header": "coordinates.latitude",
+                "path": "coordinates.latitude"
+            },
+            {
+                "type": "JSON",
+                "header": "coordinates.longitude",
+                "path": "coordinates.longitude"
+            },
+            {
+                "type": "JSON",
+                "header": "last_updated",
+                "path": "last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].evse_id",
+                "path": "evses[0].evse_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].uid",
+                "path": "evses[0].uid"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].status",
+                "path": "evses[0].status"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].capabilities",
+                "path": "evses[0].capabilities"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[0].id",
+                "path": "evses[0].connectors[0].id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[0].standard",
+                "path": "evses[0].connectors[0].standard"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[0].format",
+                "path": "evses[0].connectors[0].format"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[0].power_type",
+                "path": "evses[0].connectors[0].power_type"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[0].voltage",
+                "path": "evses[0].connectors[0].voltage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[0].amperage",
+                "path": "evses[0].connectors[0].amperage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[0].last_updated",
+                "path": "evses[0].connectors[0].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[0].pricing_id",
+                "path": "evses[0].connectors[0].pricing_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[0].max_power",
+                "path": "evses[0].connectors[0].max_power"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[1].id",
+                "path": "evses[0].connectors[1].id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[1].standard",
+                "path": "evses[0].connectors[1].standard"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[1].format",
+                "path": "evses[0].connectors[1].format"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[1].power_type",
+                "path": "evses[0].connectors[1].power_type"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[1].voltage",
+                "path": "evses[0].connectors[1].voltage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[1].amperage",
+                "path": "evses[0].connectors[1].amperage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[1].last_updated",
+                "path": "evses[0].connectors[1].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[1].pricing_id",
+                "path": "evses[0].connectors[1].pricing_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[1].max_power",
+                "path": "evses[0].connectors[1].max_power"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[2].id",
+                "path": "evses[0].connectors[2].id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[2].standard",
+                "path": "evses[0].connectors[2].standard"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[2].format",
+                "path": "evses[0].connectors[2].format"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[2].power_type",
+                "path": "evses[0].connectors[2].power_type"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[2].voltage",
+                "path": "evses[0].connectors[2].voltage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[2].amperage",
+                "path": "evses[0].connectors[2].amperage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[2].last_updated",
+                "path": "evses[0].connectors[2].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[2].pricing_id",
+                "path": "evses[0].connectors[2].pricing_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].connectors[2].max_power",
+                "path": "evses[0].connectors[2].max_power"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].last_updated",
+                "path": "evses[0].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].physical_reference",
+                "path": "evses[0].physical_reference"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].hardware_manufacturer",
+                "path": "evses[0].hardware_manufacturer"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].hardware_class",
+                "path": "evses[0].hardware_class"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].hardware_model",
+                "path": "evses[0].hardware_model"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].parking_restrictions",
+                "path": "evses[0].parking_restrictions"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[0].cpo_external_id",
+                "path": "evses[0].cpo_external_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].evse_id",
+                "path": "evses[1].evse_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].uid",
+                "path": "evses[1].uid"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].status",
+                "path": "evses[1].status"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].capabilities",
+                "path": "evses[1].capabilities"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[0].id",
+                "path": "evses[1].connectors[0].id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[0].standard",
+                "path": "evses[1].connectors[0].standard"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[0].format",
+                "path": "evses[1].connectors[0].format"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[0].power_type",
+                "path": "evses[1].connectors[0].power_type"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[0].voltage",
+                "path": "evses[1].connectors[0].voltage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[0].amperage",
+                "path": "evses[1].connectors[0].amperage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[0].last_updated",
+                "path": "evses[1].connectors[0].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[0].pricing_id",
+                "path": "evses[1].connectors[0].pricing_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[0].max_power",
+                "path": "evses[1].connectors[0].max_power"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[1].id",
+                "path": "evses[1].connectors[1].id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[1].standard",
+                "path": "evses[1].connectors[1].standard"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[1].format",
+                "path": "evses[1].connectors[1].format"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[1].power_type",
+                "path": "evses[1].connectors[1].power_type"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[1].voltage",
+                "path": "evses[1].connectors[1].voltage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[1].amperage",
+                "path": "evses[1].connectors[1].amperage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[1].last_updated",
+                "path": "evses[1].connectors[1].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[1].pricing_id",
+                "path": "evses[1].connectors[1].pricing_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[1].max_power",
+                "path": "evses[1].connectors[1].max_power"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[2].id",
+                "path": "evses[1].connectors[2].id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[2].standard",
+                "path": "evses[1].connectors[2].standard"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[2].format",
+                "path": "evses[1].connectors[2].format"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[2].power_type",
+                "path": "evses[1].connectors[2].power_type"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[2].voltage",
+                "path": "evses[1].connectors[2].voltage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[2].amperage",
+                "path": "evses[1].connectors[2].amperage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[2].last_updated",
+                "path": "evses[1].connectors[2].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[2].pricing_id",
+                "path": "evses[1].connectors[2].pricing_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].connectors[2].max_power",
+                "path": "evses[1].connectors[2].max_power"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].last_updated",
+                "path": "evses[1].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].physical_reference",
+                "path": "evses[1].physical_reference"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].hardware_manufacturer",
+                "path": "evses[1].hardware_manufacturer"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].hardware_class",
+                "path": "evses[1].hardware_class"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].hardware_model",
+                "path": "evses[1].hardware_model"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].parking_restrictions",
+                "path": "evses[1].parking_restrictions"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[1].cpo_external_id",
+                "path": "evses[1].cpo_external_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].evse_id",
+                "path": "evses[2].evse_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].uid",
+                "path": "evses[2].uid"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].status",
+                "path": "evses[2].status"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].capabilities",
+                "path": "evses[2].capabilities"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[0].id",
+                "path": "evses[2].connectors[0].id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[0].standard",
+                "path": "evses[2].connectors[0].standard"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[0].format",
+                "path": "evses[2].connectors[0].format"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[0].power_type",
+                "path": "evses[2].connectors[0].power_type"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[0].voltage",
+                "path": "evses[2].connectors[0].voltage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[0].amperage",
+                "path": "evses[2].connectors[0].amperage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[0].last_updated",
+                "path": "evses[2].connectors[0].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[0].pricing_id",
+                "path": "evses[2].connectors[0].pricing_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[0].max_power",
+                "path": "evses[2].connectors[0].max_power"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[1].id",
+                "path": "evses[2].connectors[1].id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[1].standard",
+                "path": "evses[2].connectors[1].standard"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[1].format",
+                "path": "evses[2].connectors[1].format"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[1].power_type",
+                "path": "evses[2].connectors[1].power_type"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[1].voltage",
+                "path": "evses[2].connectors[1].voltage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[1].amperage",
+                "path": "evses[2].connectors[1].amperage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[1].last_updated",
+                "path": "evses[2].connectors[1].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[1].pricing_id",
+                "path": "evses[2].connectors[1].pricing_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[1].max_power",
+                "path": "evses[2].connectors[1].max_power"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[2].id",
+                "path": "evses[2].connectors[2].id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[2].standard",
+                "path": "evses[2].connectors[2].standard"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[2].format",
+                "path": "evses[2].connectors[2].format"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[2].power_type",
+                "path": "evses[2].connectors[2].power_type"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[2].voltage",
+                "path": "evses[2].connectors[2].voltage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[2].amperage",
+                "path": "evses[2].connectors[2].amperage"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[2].last_updated",
+                "path": "evses[2].connectors[2].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[2].pricing_id",
+                "path": "evses[2].connectors[2].pricing_id"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].connectors[2].max_power",
+                "path": "evses[2].connectors[2].max_power"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].last_updated",
+                "path": "evses[2].last_updated"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].physical_reference",
+                "path": "evses[2].physical_reference"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].hardware_manufacturer",
+                "path": "evses[2].hardware_manufacturer"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].hardware_class",
+                "path": "evses[2].hardware_class"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].hardware_model",
+                "path": "evses[2].hardware_model"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].parking_restrictions",
+                "path": "evses[2].parking_restrictions"
+            },
+            {
+                "type": "JSON",
+                "header": "evses[2].cpo_external_id",
+                "path": "evses[2].cpo_external_id"
+            },
+            {
+                "type": "JSON",
+                "header": "opening_times.twentyfourseven",
+                "path": "opening_times.twentyfourseven"
+            },
+            {
+                "type": "JSON",
+                "header": "name",
+                "path": "name"
+            },
+            {
+                "type": "JSON",
+                "header": "operator.name",
+                "path": "operator.name"
+            },
+            {
+                "type": "JSON",
+                "header": "operator.website",
+                "path": "operator.website"
+            },
+            {
+                "type": "JSON",
+                "header": "brand_name.name",
+                "path": "brand_name.name"
+            },
+            {
+                "type": "JSON",
+                "header": "brand_name.website",
+                "path": "brand_name.website"
+            },
+            {
+                "type": "JSON",
+                "header": "suboperator.name",
+                "path": "suboperator.name"
+            },
+            {
+                "type": "JSON",
+                "header": "suboperator.website",
+                "path": "suboperator.website"
+            },
+            {
+                "type": "JSON",
+                "header": "owner.name",
+                "path": "owner.name"
+            },
+            {
+                "type": "JSON",
+                "header": "owner.website",
+                "path": "owner.website"
+            },
+            {
+                "type": "JSON",
+                "header": "charging_when_closed",
+                "path": "charging_when_closed"
+            },
+            {
+                "type": "JSON",
+                "header": "access_type",
+                "path": "access_type"
+            },
+            {
+                "type": "JSON",
+                "header": "facilities",
+                "path": "facilities"
+            },
+            {
+                "type": "JSON",
+                "header": "support_phone_number",
+                "path": "support_phone_number"
+            },
+            {
+                "type": "JSON",
+                "header": "energy_mix.is_green_energy",
+                "path": "energy_mix.is_green_energy"
+            },
+            {
+                "type": "JSON",
+                "header": "energy_mix.supplier_name",
+                "path": "energy_mix.supplier_name"
+            },
+            {
+                "type": "JSON",
+                "header": "energy_mix.energy_sources[].source",
+                "path": "energy_mix.energy_sources[].source"
+            },
+            {
+                "type": "JSON",
+                "header": "energy_mix.energy_sources[].percentage",
+                "path": "energy_mix.energy_sources[].percentage"
+            },
+            {
+                "type": "JSON",
+                "header": "energy_mix.energy_product_name",
+                "path": "energy_mix.energy_product_name"
+            },
+            {
+                "type": "JSON",
+                "header": "administrative_areas.state_province",
+                "path": "administrative_areas.state_province"
+            },
+            {
+                "type": "JSON",
+                "header": "administrative_areas.municipality",
+                "path": "administrative_areas.municipality"
+            },
+            {
+                "type": "JSON",
+                "header": "charging_behaviour.code",
+                "path": "charging_behaviour.code"
+            },
+            {
+                "type": "JSON",
+                "header": "charging_behaviour.description",
+                "path": "charging_behaviour.description"
+            },
+            {
+                "type": "JSON",
+                "header": "location_type[].code",
+                "path": "location_type[].code"
+            },
+            {
+                "type": "JSON",
+                "header": "location_type[].description",
+                "path": "location_type[].description"
+            },
+            {
+                "type": "JSON",
+                "header": "reliability_score_2",
+                "path": "reliability_score_2"
+            },
+            {
+                "type": "JSON",
+                "header": "time_zone",
+                "path": "time_zone"
+            }
+        ]
     },
-    "baseSelector": {
-      "type": "JSON",
-      "header": "Entity Container",
-      "path": "data"
-    },
-    "selectors": [
-      {
-        "type": "JSON",
-        "header": "id",
-        "path": "id"
-      },
-      {
-        "type": "JSON",
-        "header": "type",
-        "path": "type"
-      },
-      {
-        "type": "JSON",
-        "header": "address",
-        "path": "address"
-      },
-      {
-        "type": "JSON",
-        "header": "city",
-        "path": "city"
-      },
-      {
-        "type": "JSON",
-        "header": "postal_code",
-        "path": "postal_code"
-      },
-      {
-        "type": "JSON",
-        "header": "country",
-        "path": "country"
-      },
-      {
-        "type": "JSON",
-        "header": "coordinates.latitude",
-        "path": "coordinates.latitude"
-      },
-      {
-        "type": "JSON",
-        "header": "coordinates.longitude",
-        "path": "coordinates.longitude"
-      },
-      {
-        "type": "JSON",
-        "header": "last_updated",
-        "path": "last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].evse_id",
-        "path": "evses[0].evse_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].uid",
-        "path": "evses[0].uid"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].status",
-        "path": "evses[0].status"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].capabilities",
-        "path": "evses[0].capabilities"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[0].id",
-        "path": "evses[0].connectors[0].id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[0].standard",
-        "path": "evses[0].connectors[0].standard"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[0].format",
-        "path": "evses[0].connectors[0].format"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[0].power_type",
-        "path": "evses[0].connectors[0].power_type"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[0].voltage",
-        "path": "evses[0].connectors[0].voltage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[0].amperage",
-        "path": "evses[0].connectors[0].amperage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[0].last_updated",
-        "path": "evses[0].connectors[0].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[0].pricing_id",
-        "path": "evses[0].connectors[0].pricing_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[0].max_power",
-        "path": "evses[0].connectors[0].max_power"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[1].id",
-        "path": "evses[0].connectors[1].id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[1].standard",
-        "path": "evses[0].connectors[1].standard"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[1].format",
-        "path": "evses[0].connectors[1].format"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[1].power_type",
-        "path": "evses[0].connectors[1].power_type"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[1].voltage",
-        "path": "evses[0].connectors[1].voltage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[1].amperage",
-        "path": "evses[0].connectors[1].amperage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[1].last_updated",
-        "path": "evses[0].connectors[1].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[1].pricing_id",
-        "path": "evses[0].connectors[1].pricing_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[1].max_power",
-        "path": "evses[0].connectors[1].max_power"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[2].id",
-        "path": "evses[0].connectors[2].id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[2].standard",
-        "path": "evses[0].connectors[2].standard"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[2].format",
-        "path": "evses[0].connectors[2].format"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[2].power_type",
-        "path": "evses[0].connectors[2].power_type"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[2].voltage",
-        "path": "evses[0].connectors[2].voltage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[2].amperage",
-        "path": "evses[0].connectors[2].amperage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[2].last_updated",
-        "path": "evses[0].connectors[2].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[2].pricing_id",
-        "path": "evses[0].connectors[2].pricing_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].connectors[2].max_power",
-        "path": "evses[0].connectors[2].max_power"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].last_updated",
-        "path": "evses[0].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].physical_reference",
-        "path": "evses[0].physical_reference"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].hardware_manufacturer",
-        "path": "evses[0].hardware_manufacturer"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].hardware_class",
-        "path": "evses[0].hardware_class"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].hardware_model",
-        "path": "evses[0].hardware_model"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].parking_restrictions",
-        "path": "evses[0].parking_restrictions"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[0].cpo_external_id",
-        "path": "evses[0].cpo_external_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].evse_id",
-        "path": "evses[1].evse_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].uid",
-        "path": "evses[1].uid"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].status",
-        "path": "evses[1].status"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].capabilities",
-        "path": "evses[1].capabilities"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[0].id",
-        "path": "evses[1].connectors[0].id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[0].standard",
-        "path": "evses[1].connectors[0].standard"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[0].format",
-        "path": "evses[1].connectors[0].format"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[0].power_type",
-        "path": "evses[1].connectors[0].power_type"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[0].voltage",
-        "path": "evses[1].connectors[0].voltage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[0].amperage",
-        "path": "evses[1].connectors[0].amperage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[0].last_updated",
-        "path": "evses[1].connectors[0].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[0].pricing_id",
-        "path": "evses[1].connectors[0].pricing_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[0].max_power",
-        "path": "evses[1].connectors[0].max_power"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[1].id",
-        "path": "evses[1].connectors[1].id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[1].standard",
-        "path": "evses[1].connectors[1].standard"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[1].format",
-        "path": "evses[1].connectors[1].format"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[1].power_type",
-        "path": "evses[1].connectors[1].power_type"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[1].voltage",
-        "path": "evses[1].connectors[1].voltage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[1].amperage",
-        "path": "evses[1].connectors[1].amperage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[1].last_updated",
-        "path": "evses[1].connectors[1].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[1].pricing_id",
-        "path": "evses[1].connectors[1].pricing_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[1].max_power",
-        "path": "evses[1].connectors[1].max_power"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[2].id",
-        "path": "evses[1].connectors[2].id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[2].standard",
-        "path": "evses[1].connectors[2].standard"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[2].format",
-        "path": "evses[1].connectors[2].format"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[2].power_type",
-        "path": "evses[1].connectors[2].power_type"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[2].voltage",
-        "path": "evses[1].connectors[2].voltage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[2].amperage",
-        "path": "evses[1].connectors[2].amperage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[2].last_updated",
-        "path": "evses[1].connectors[2].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[2].pricing_id",
-        "path": "evses[1].connectors[2].pricing_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].connectors[2].max_power",
-        "path": "evses[1].connectors[2].max_power"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].last_updated",
-        "path": "evses[1].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].physical_reference",
-        "path": "evses[1].physical_reference"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].hardware_manufacturer",
-        "path": "evses[1].hardware_manufacturer"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].hardware_class",
-        "path": "evses[1].hardware_class"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].hardware_model",
-        "path": "evses[1].hardware_model"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].parking_restrictions",
-        "path": "evses[1].parking_restrictions"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[1].cpo_external_id",
-        "path": "evses[1].cpo_external_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].evse_id",
-        "path": "evses[2].evse_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].uid",
-        "path": "evses[2].uid"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].status",
-        "path": "evses[2].status"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].capabilities",
-        "path": "evses[2].capabilities"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[0].id",
-        "path": "evses[2].connectors[0].id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[0].standard",
-        "path": "evses[2].connectors[0].standard"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[0].format",
-        "path": "evses[2].connectors[0].format"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[0].power_type",
-        "path": "evses[2].connectors[0].power_type"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[0].voltage",
-        "path": "evses[2].connectors[0].voltage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[0].amperage",
-        "path": "evses[2].connectors[0].amperage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[0].last_updated",
-        "path": "evses[2].connectors[0].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[0].pricing_id",
-        "path": "evses[2].connectors[0].pricing_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[0].max_power",
-        "path": "evses[2].connectors[0].max_power"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[1].id",
-        "path": "evses[2].connectors[1].id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[1].standard",
-        "path": "evses[2].connectors[1].standard"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[1].format",
-        "path": "evses[2].connectors[1].format"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[1].power_type",
-        "path": "evses[2].connectors[1].power_type"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[1].voltage",
-        "path": "evses[2].connectors[1].voltage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[1].amperage",
-        "path": "evses[2].connectors[1].amperage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[1].last_updated",
-        "path": "evses[2].connectors[1].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[1].pricing_id",
-        "path": "evses[2].connectors[1].pricing_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[1].max_power",
-        "path": "evses[2].connectors[1].max_power"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[2].id",
-        "path": "evses[2].connectors[2].id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[2].standard",
-        "path": "evses[2].connectors[2].standard"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[2].format",
-        "path": "evses[2].connectors[2].format"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[2].power_type",
-        "path": "evses[2].connectors[2].power_type"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[2].voltage",
-        "path": "evses[2].connectors[2].voltage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[2].amperage",
-        "path": "evses[2].connectors[2].amperage"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[2].last_updated",
-        "path": "evses[2].connectors[2].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[2].pricing_id",
-        "path": "evses[2].connectors[2].pricing_id"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].connectors[2].max_power",
-        "path": "evses[2].connectors[2].max_power"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].last_updated",
-        "path": "evses[2].last_updated"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].physical_reference",
-        "path": "evses[2].physical_reference"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].hardware_manufacturer",
-        "path": "evses[2].hardware_manufacturer"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].hardware_class",
-        "path": "evses[2].hardware_class"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].hardware_model",
-        "path": "evses[2].hardware_model"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].parking_restrictions",
-        "path": "evses[2].parking_restrictions"
-      },
-      {
-        "type": "JSON",
-        "header": "evses[2].cpo_external_id",
-        "path": "evses[2].cpo_external_id"
-      },
-      {
-        "type": "JSON",
-        "header": "opening_times.twentyfourseven",
-        "path": "opening_times.twentyfourseven"
-      },
-      {
-        "type": "JSON",
-        "header": "name",
-        "path": "name"
-      },
-      {
-        "type": "JSON",
-        "header": "operator.name",
-        "path": "operator.name"
-      },
-      {
-        "type": "JSON",
-        "header": "operator.website",
-        "path": "operator.website"
-      },
-      {
-        "type": "JSON",
-        "header": "brand_name.name",
-        "path": "brand_name.name"
-      },
-      {
-        "type": "JSON",
-        "header": "brand_name.website",
-        "path": "brand_name.website"
-      },
-      {
-        "type": "JSON",
-        "header": "suboperator.name",
-        "path": "suboperator.name"
-      },
-      {
-        "type": "JSON",
-        "header": "suboperator.website",
-        "path": "suboperator.website"
-      },
-      {
-        "type": "JSON",
-        "header": "owner.name",
-        "path": "owner.name"
-      },
-      {
-        "type": "JSON",
-        "header": "owner.website",
-        "path": "owner.website"
-      },
-      {
-        "type": "JSON",
-        "header": "charging_when_closed",
-        "path": "charging_when_closed"
-      },
-      {
-        "type": "JSON",
-        "header": "access_type",
-        "path": "access_type"
-      },
-      {
-        "type": "JSON",
-        "header": "facilities",
-        "path": "facilities"
-      },
-      {
-        "type": "JSON",
-        "header": "support_phone_number",
-        "path": "support_phone_number"
-      },
-      {
-        "type": "JSON",
-        "header": "energy_mix.is_green_energy",
-        "path": "energy_mix.is_green_energy"
-      },
-      {
-        "type": "JSON",
-        "header": "energy_mix.supplier_name",
-        "path": "energy_mix.supplier_name"
-      },
-      {
-        "type": "JSON",
-        "header": "energy_mix.energy_sources[].source",
-        "path": "energy_mix.energy_sources[].source"
-      },
-      {
-        "type": "JSON",
-        "header": "energy_mix.energy_sources[].percentage",
-        "path": "energy_mix.energy_sources[].percentage"
-      },
-      {
-        "type": "JSON",
-        "header": "energy_mix.energy_product_name",
-        "path": "energy_mix.energy_product_name"
-      },
-      {
-        "type": "JSON",
-        "header": "administrative_areas.state_province",
-        "path": "administrative_areas.state_province"
-      },
-      {
-        "type": "JSON",
-        "header": "administrative_areas.municipality",
-        "path": "administrative_areas.municipality"
-      },
-      {
-        "type": "JSON",
-        "header": "charging_behaviour.code",
-        "path": "charging_behaviour.code"
-      },
-      {
-        "type": "JSON",
-        "header": "charging_behaviour.description",
-        "path": "charging_behaviour.description"
-      },
-      {
-        "type": "JSON",
-        "header": "location_type[].code",
-        "path": "location_type[].code"
-      },
-      {
-        "type": "JSON",
-        "header": "location_type[].description",
-        "path": "location_type[].description"
-      },
-      {
-        "type": "JSON",
-        "header": "reliability_score_2",
-        "path": "reliability_score_2"
-      },
-      {
-        "type": "JSON",
-        "header": "time_zone",
-        "path": "time_zone"
-      }
-    ]
-  },
-  "transforms": [
-    {
-      "function": {
-        "inputHeaders": {
-          "headers": [
-            "country"
-          ]
+    "transforms": [
+        {
+            "function": {
+                "inputHeaders": {
+                    "headers": [
+                        "country"
+                    ]
+                },
+                "plugin": "ecomovement_countryCode",
+                "function": "countryCode"
+            }
         },
-        "plugin": "ecomovement_countryCode",
-        "function": "countryCode"
-      }
+        {
+            "addColumn": {
+                "newColumnHeader": "official location name",
+                "columnValue": "${{brandName}}"
+            }
+        }
+    ],
+    "mappings": [
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[1].power_type",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "powerType"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[2].power_type",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "powerType"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].hardware_manufacturer",
+            "subfieldPath": [
+                {
+                    "name": "hardwareManufacturer"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].evse_id",
+            "subfieldPath": [
+                {
+                    "name": "eVSEID"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[0].power_type",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "powerType"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_brandDetails",
+            "header": "brand_name.website",
+            "subfieldPath": [
+                {
+                    "name": "website"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[0].amperage",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "amperage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_operatorDetails",
+            "header": "operator.name",
+            "subfieldPath": [
+                {
+                    "name": "name"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].hardware_model",
+            "subfieldPath": [
+                {
+                    "name": "hardwareModel"
+                }
+            ]
+        },
+        {
+            "field": "entityId",
+            "header": "id",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[2].voltage",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "voltage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[2].id",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[2].standard",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "standard"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].hardware_manufacturer",
+            "subfieldPath": [
+                {
+                    "name": "hardwareManufacturer"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[0].format",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "format"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].evse_id",
+            "subfieldPath": [
+                {
+                    "name": "eVSEID"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[2].id",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[2].voltage",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "voltage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_locationTypeDetails",
+            "header": "location_type[].code",
+            "subfieldPath": [
+                {
+                    "name": "code"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].cpo_external_id",
+            "subfieldPath": [
+                {
+                    "name": "cPOExternalID"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_accessType",
+            "header": "access_type",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[1].voltage",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "voltage"
+                }
+            ]
+        },
+        {
+            "field": "address",
+            "header": "city",
+            "subfieldPath": [
+                {
+                    "name": "city"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[0].format",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "format"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[0].id",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[1].id",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[2].format",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "format"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_energyProduct",
+            "header": "energy_mix.energy_product_name",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].uid",
+            "subfieldPath": [
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[0].amperage",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "amperage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].hardware_class",
+            "subfieldPath": [
+                {
+                    "name": "hardwareClass"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[1].power_type",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "powerType"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[2].power_type",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "powerType"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[0].standard",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "standard"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[1].voltage",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "voltage"
+                }
+            ]
+        },
+        {
+            "field": "address",
+            "header": "address",
+            "subfieldPath": [
+                {
+                    "name": "line1"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].evse_id",
+            "subfieldPath": [
+                {
+                    "name": "eVSEID"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_ownerDetails",
+            "header": "owner.name",
+            "subfieldPath": [
+                {
+                    "name": "name"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[0].power_type",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "powerType"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[1].format",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "format"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_suboperatorDetails",
+            "header": "suboperator.name",
+            "subfieldPath": [
+                {
+                    "name": "name"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].hardware_model",
+            "subfieldPath": [
+                {
+                    "name": "hardwareModel"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[0].id",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_chargingBehavior",
+            "header": "charging_behaviour.code",
+            "subfieldPath": [
+                {
+                    "name": "code"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[2].amperage",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "amperage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[2].standard",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "standard"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_nearbyFacilities",
+            "header": "facilities",
+            "subfieldPath": []
+        },
+        {
+            "field": "address",
+            "header": "postal_code",
+            "subfieldPath": [
+                {
+                    "name": "postalCode"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_brandDetails",
+            "header": "brand_name.name",
+            "subfieldPath": [
+                {
+                    "name": "name"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].uid",
+            "subfieldPath": [
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].physical_reference",
+            "subfieldPath": [
+                {
+                    "name": "physicalReference"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_locationTypeDetails",
+            "header": "location_type[].description",
+            "subfieldPath": [
+                {
+                    "name": "description"
+                }
+            ]
+        },
+        {
+            "field": "address",
+            "header": "country",
+            "subfieldPath": [
+                {
+                    "name": "countryCode"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_chargingWhenClosed",
+            "header": "charging_when_closed",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[2].standard",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "standard"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[2].amperage",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "amperage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].cpo_external_id",
+            "subfieldPath": [
+                {
+                    "name": "cPOExternalID"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_reliabilityScore",
+            "header": "reliability_score_2",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[1].format",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "format"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[0].voltage",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "voltage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[0].amperage",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "amperage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[1].id",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[0].power_type",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "powerType"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[0].max_power",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "maxPower"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[2].power_type",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "powerType"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[1].standard",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "standard"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_greenEnergy",
+            "header": "energy_mix.is_green_energy",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_suboperatorDetails",
+            "header": "suboperator.website",
+            "subfieldPath": [
+                {
+                    "name": "website"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].physical_reference",
+            "subfieldPath": [
+                {
+                    "name": "physicalReference"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_operatorDetails",
+            "header": "operator.website",
+            "subfieldPath": [
+                {
+                    "name": "website"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[1].max_power",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "maxPower"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[1].format",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "format"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[1].power_type",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "powerType"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[2].format",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "format"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[1].standard",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "standard"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].parking_restrictions",
+            "subfieldPath": [
+                {
+                    "name": "eVSEParkingRestrictions"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_energySupplier",
+            "header": "energy_mix.supplier_name",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].physical_reference",
+            "subfieldPath": [
+                {
+                    "name": "physicalReference"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].parking_restrictions",
+            "subfieldPath": [
+                {
+                    "name": "eVSEParkingRestrictions"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[1].voltage",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "voltage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[0].standard",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "standard"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[2].id",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[0].voltage",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "voltage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[1].amperage",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "amperage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].parking_restrictions",
+            "subfieldPath": [
+                {
+                    "name": "eVSEParkingRestrictions"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].hardware_class",
+            "subfieldPath": [
+                {
+                    "name": "hardwareClass"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[1].id",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[2].format",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "format"
+                }
+            ]
+        },
+        {
+            "field": "name",
+            "header": "official location name",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[1].standard",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "standard"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].capabilities",
+            "subfieldPath": [
+                {
+                    "name": "capabilities"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[0].voltage",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "voltage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[0].max_power",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "maxPower"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].hardware_model",
+            "subfieldPath": [
+                {
+                    "name": "hardwareModel"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].capabilities",
+            "subfieldPath": [
+                {
+                    "name": "capabilities"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[0].max_power",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "maxPower"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[1].amperage",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "amperage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].hardware_class",
+            "subfieldPath": [
+                {
+                    "name": "hardwareClass"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[0].format",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "format"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[2].amperage",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "amperage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[1].max_power",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "maxPower"
+                }
+            ]
+        },
+        {
+            "field": "mainPhone",
+            "header": "support_phone_number",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].capabilities",
+            "subfieldPath": [
+                {
+                    "name": "capabilities"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[0].id",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[1].amperage",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "amperage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].hardware_manufacturer",
+            "subfieldPath": [
+                {
+                    "name": "hardwareManufacturer"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_ownerDetails",
+            "header": "owner.website",
+            "subfieldPath": [
+                {
+                    "name": "website"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[1].max_power",
+            "subfieldPath": [
+                {
+                    "name": "connector2"
+                },
+                {
+                    "name": "maxPower"
+                }
+            ]
+        },
+        {
+            "field": "timezone",
+            "header": "time_zone",
+            "subfieldPath": []
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].cpo_external_id",
+            "subfieldPath": [
+                {
+                    "name": "cPOExternalID"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].connectors[2].max_power",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "maxPower"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_chargingBehavior",
+            "header": "charging_behaviour.description",
+            "subfieldPath": [
+                {
+                    "name": "description"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[2].max_power",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "maxPower"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE2",
+            "header": "evses[1].uid",
+            "subfieldPath": [
+                {
+                    "name": "iD"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[2].max_power",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "maxPower"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE3",
+            "header": "evses[2].connectors[2].voltage",
+            "subfieldPath": [
+                {
+                    "name": "connector3"
+                },
+                {
+                    "name": "voltage"
+                }
+            ]
+        },
+        {
+            "field": "ecomovement_eVSE1",
+            "header": "evses[0].connectors[0].standard",
+            "subfieldPath": [
+                {
+                    "name": "connector1"
+                },
+                {
+                    "name": "standard"
+                }
+            ]
+        }
+    ],
+    "scheduleConfig": {
+        "customSchedule": {
+            "timeZone": "Europe/London",
+            "startDate": "2022-11-13",
+            "startTime": "00:00",
+            "frequencyType": "DAILY"
+        },
+        "runMode": "DEFAULT"
     },
-    {
-      "addColumn": {
-        "newColumnHeader": "official location name",
-        "columnValue": "${{brandName}}"
-      }
+    "comprehensiveModeConfig": {
+        "comprehensiveSet": "ENTITIES_CREATED_BY_THIS_CONNECTOR",
+        "actionOnMissingEntities": "DELETE"
     }
-  ],
-  "mappings": [
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[1].power_type",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "powerType"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[2].power_type",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "powerType"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].hardware_manufacturer",
-      "subfieldPath": [
-        {
-          "name": "hardwareManufacturer"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].evse_id",
-      "subfieldPath": [
-        {
-          "name": "eVSEID"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[0].power_type",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "powerType"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_brandDetails",
-      "header": "brand_name.website",
-      "subfieldPath": [
-        {
-          "name": "website"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[0].amperage",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "amperage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_operatorDetails",
-      "header": "operator.name",
-      "subfieldPath": [
-        {
-          "name": "name"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].hardware_model",
-      "subfieldPath": [
-        {
-          "name": "hardwareModel"
-        }
-      ]
-    },
-    {
-      "field": "entityId",
-      "header": "id",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[2].voltage",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "voltage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[2].id",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[2].standard",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "standard"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].hardware_manufacturer",
-      "subfieldPath": [
-        {
-          "name": "hardwareManufacturer"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[0].format",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "format"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].evse_id",
-      "subfieldPath": [
-        {
-          "name": "eVSEID"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[2].id",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[2].voltage",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "voltage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_locationTypeDetails",
-      "header": "location_type[].code",
-      "subfieldPath": [
-        {
-          "name": "code"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].cpo_external_id",
-      "subfieldPath": [
-        {
-          "name": "cPOExternalID"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_accessType",
-      "header": "access_type",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[1].voltage",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "voltage"
-        }
-      ]
-    },
-    {
-      "field": "address",
-      "header": "city",
-      "subfieldPath": [
-        {
-          "name": "city"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[0].format",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "format"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[0].id",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[1].id",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[2].format",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "format"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_energyProduct",
-      "header": "energy_mix.energy_product_name",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].uid",
-      "subfieldPath": [
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[0].amperage",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "amperage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].hardware_class",
-      "subfieldPath": [
-        {
-          "name": "hardwareClass"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[1].power_type",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "powerType"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[2].power_type",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "powerType"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[0].standard",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "standard"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[1].voltage",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "voltage"
-        }
-      ]
-    },
-    {
-      "field": "address",
-      "header": "address",
-      "subfieldPath": [
-        {
-          "name": "line1"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].evse_id",
-      "subfieldPath": [
-        {
-          "name": "eVSEID"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_ownerDetails",
-      "header": "owner.name",
-      "subfieldPath": [
-        {
-          "name": "name"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[0].power_type",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "powerType"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[1].format",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "format"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_suboperatorDetails",
-      "header": "suboperator.name",
-      "subfieldPath": [
-        {
-          "name": "name"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].hardware_model",
-      "subfieldPath": [
-        {
-          "name": "hardwareModel"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[0].id",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_chargingBehavior",
-      "header": "charging_behaviour.code",
-      "subfieldPath": [
-        {
-          "name": "code"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[2].amperage",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "amperage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[2].standard",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "standard"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_nearbyFacilities",
-      "header": "facilities",
-      "subfieldPath": []
-    },
-    {
-      "field": "address",
-      "header": "postal_code",
-      "subfieldPath": [
-        {
-          "name": "postalCode"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_brandDetails",
-      "header": "brand_name.name",
-      "subfieldPath": [
-        {
-          "name": "name"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].uid",
-      "subfieldPath": [
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].physical_reference",
-      "subfieldPath": [
-        {
-          "name": "physicalReference"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_locationTypeDetails",
-      "header": "location_type[].description",
-      "subfieldPath": [
-        {
-          "name": "description"
-        }
-      ]
-    },
-    {
-      "field": "address",
-      "header": "country",
-      "subfieldPath": [
-        {
-          "name": "countryCode"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_chargingWhenClosed",
-      "header": "charging_when_closed",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[2].standard",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "standard"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[2].amperage",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "amperage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].cpo_external_id",
-      "subfieldPath": [
-        {
-          "name": "cPOExternalID"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_reliabilityScore",
-      "header": "reliability_score_2",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[1].format",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "format"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[0].voltage",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "voltage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[0].amperage",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "amperage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[1].id",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[0].power_type",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "powerType"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[0].max_power",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "maxPower"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[2].power_type",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "powerType"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[1].standard",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "standard"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_greenEnergy",
-      "header": "energy_mix.is_green_energy",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_suboperatorDetails",
-      "header": "suboperator.website",
-      "subfieldPath": [
-        {
-          "name": "website"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].physical_reference",
-      "subfieldPath": [
-        {
-          "name": "physicalReference"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_operatorDetails",
-      "header": "operator.website",
-      "subfieldPath": [
-        {
-          "name": "website"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[1].max_power",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "maxPower"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[1].format",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "format"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[1].power_type",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "powerType"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[2].format",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "format"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[1].standard",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "standard"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].parking_restrictions",
-      "subfieldPath": [
-        {
-          "name": "eVSEParkingRestrictions"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_energySupplier",
-      "header": "energy_mix.supplier_name",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].physical_reference",
-      "subfieldPath": [
-        {
-          "name": "physicalReference"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].parking_restrictions",
-      "subfieldPath": [
-        {
-          "name": "eVSEParkingRestrictions"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[1].voltage",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "voltage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[0].standard",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "standard"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[2].id",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[0].voltage",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "voltage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[1].amperage",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "amperage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].parking_restrictions",
-      "subfieldPath": [
-        {
-          "name": "eVSEParkingRestrictions"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].hardware_class",
-      "subfieldPath": [
-        {
-          "name": "hardwareClass"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[1].id",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[2].format",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "format"
-        }
-      ]
-    },
-    {
-      "field": "name",
-      "header": "official location name",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[1].standard",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "standard"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].capabilities",
-      "subfieldPath": [
-        {
-          "name": "capabilities"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[0].voltage",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "voltage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[0].max_power",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "maxPower"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].hardware_model",
-      "subfieldPath": [
-        {
-          "name": "hardwareModel"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].capabilities",
-      "subfieldPath": [
-        {
-          "name": "capabilities"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[0].max_power",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "maxPower"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[1].amperage",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "amperage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].hardware_class",
-      "subfieldPath": [
-        {
-          "name": "hardwareClass"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[0].format",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "format"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[2].amperage",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "amperage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[1].max_power",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "maxPower"
-        }
-      ]
-    },
-    {
-      "field": "mainPhone",
-      "header": "support_phone_number",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].capabilities",
-      "subfieldPath": [
-        {
-          "name": "capabilities"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[0].id",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[1].amperage",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "amperage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].hardware_manufacturer",
-      "subfieldPath": [
-        {
-          "name": "hardwareManufacturer"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_ownerDetails",
-      "header": "owner.website",
-      "subfieldPath": [
-        {
-          "name": "website"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[1].max_power",
-      "subfieldPath": [
-        {
-          "name": "connector2"
-        },
-        {
-          "name": "maxPower"
-        }
-      ]
-    },
-    {
-      "field": "timezone",
-      "header": "time_zone",
-      "subfieldPath": []
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].cpo_external_id",
-      "subfieldPath": [
-        {
-          "name": "cPOExternalID"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].connectors[2].max_power",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "maxPower"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_chargingBehavior",
-      "header": "charging_behaviour.description",
-      "subfieldPath": [
-        {
-          "name": "description"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[2].max_power",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "maxPower"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE2",
-      "header": "evses[1].uid",
-      "subfieldPath": [
-        {
-          "name": "iD"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[2].max_power",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "maxPower"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE3",
-      "header": "evses[2].connectors[2].voltage",
-      "subfieldPath": [
-        {
-          "name": "connector3"
-        },
-        {
-          "name": "voltage"
-        }
-      ]
-    },
-    {
-      "field": "ecomovement_eVSE1",
-      "header": "evses[0].connectors[0].standard",
-      "subfieldPath": [
-        {
-          "name": "connector1"
-        },
-        {
-          "name": "standard"
-        }
-      ]
-    }
-  ],
-  "scheduleConfig": {
-    "customSchedule": {
-      "timeZone": "Europe/London",
-      "startDate": "2022-11-13",
-      "startTime": "00:00",
-      "frequencyType": "DAILY"
-    },
-    "runMode": "DEFAULT"
-  }
 }
