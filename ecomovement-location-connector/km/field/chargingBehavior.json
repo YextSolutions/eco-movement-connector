@@ -1,9 +1,0 @@
-{
-  "$id": "ecomovement_chargingBehavior",
-  "$schema": "https://schema.yext.com/config/km/field/v1",
-  "description": "",
-  "displayName": "Charging Behavior",
-  "group": "NONE",
-  "localization": "OVERRIDABLE",
-  "typeId": "ecomovement_typeDesc"
-}
