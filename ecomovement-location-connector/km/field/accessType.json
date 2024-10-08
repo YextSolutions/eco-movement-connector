@@ -1,0 +1,27 @@
+{
+  "$id": "ecomovement_accessType",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "description": "",
+  "displayName": "Access Type",
+  "group": "NONE",
+  "localization": "OVERRIDABLE",
+  "type": {
+    "optionType": {
+      "option": [
+        {
+          "displayName": "Public",
+          "textValue": "PUBLIC"
+        },
+        {
+          "displayName": "Restricted",
+          "textValue": "RESTRICTED"
+        },
+        {
+          "displayName": "Private",
+          "textValue": "PRIVATE"
+        }
+      ]
+    }
+  },
+  "typeId": "option"
+}

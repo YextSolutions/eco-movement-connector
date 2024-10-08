@@ -1,0 +1,9 @@
+{
+  "$id": "ecomovement_operatorDetails",
+  "$schema": "https://schema.yext.com/config/km/field/v1",
+  "description": "",
+  "displayName": "Operator Details",
+  "group": "NONE",
+  "localization": "OVERRIDABLE",
+  "typeId": "ecomovement_operatorDetails"
+}
