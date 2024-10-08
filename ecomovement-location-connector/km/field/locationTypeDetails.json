@@ -1,9 +1,0 @@
-{
-  "$id": "ecomovement_locationTypeDetails",
-  "$schema": "https://schema.yext.com/config/km/field/v1",
-  "description": "",
-  "displayName": "Location Type Details",
-  "group": "NONE",
-  "localization": "OVERRIDABLE",
-  "typeId": "ecomovement_typeDesc"
-}
