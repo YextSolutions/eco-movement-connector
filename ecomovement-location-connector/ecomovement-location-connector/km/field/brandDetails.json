@@ -1,9 +1,0 @@
-{
-  "$id": "ecomovement_brandDetails",
-  "$schema": "https://schema.yext.com/config/km/field/v1",
-  "description": "",
-  "displayName": "Brand Details",
-  "group": "NONE",
-  "localization": "OVERRIDABLE",
-  "typeId": "ecomovement_operatorDetails"
-}
