@@ -1,0 +1,36 @@
+{
+  "$id": "ecomovement_typeDesc",
+  "$schema": "https://schema.yext.com/config/km/field-type/v1",
+  "description": "",
+  "displayName": "Type \u0026 Description",
+  "type": {
+    "structType": {
+      "property": [
+        {
+          "name": "code",
+          "displayName": "Code",
+          "isRequired": false,
+          "typeId": "string",
+          "type": {
+            "stringType": {
+              "stereotype": "SIMPLE",
+              "maxLength": 100000
+            }
+          }
+        },
+        {
+          "name": "description",
+          "displayName": "Description",
+          "isRequired": false,
+          "typeId": "string",
+          "type": {
+            "stringType": {
+              "stereotype": "MULTILINE",
+              "maxLength": 100000
+            }
+          }
+        }
+      ]
+    }
+  }
+}
