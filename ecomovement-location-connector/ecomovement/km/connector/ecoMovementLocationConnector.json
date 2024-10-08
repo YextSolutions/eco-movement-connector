@@ -1,14 +1,14 @@
 {
-  "$id": "ecomovement_ecoMovementLocationConnectorCopy",
+  "$id": "ecomovement_ecoMovementLocationConnector",
   "$schema": "https://schema.yext.com/config/km/connector/v6",
-  "displayName": "Eco-Movement Location Connector - Maintain",
+  "displayName": "Eco-Movement Location Connector",
   "source": {
     "sourceConfig": {
       "apiPullConfig": {
         "requestType": "GET",
         "url": "https://api.eco-movement.com/api/ocpi/cpo/2.1.1/locations",
         "authentication": {
-          "bearerToken": "${{km/connector.ecomovement_ecoMovementLocationConnectorCopy.api_bearer_token}}"
+          "bearerToken": "${{km/connector.ecomovement_ecoMovementLocationConnector.api_bearer_token}}"
         },
         "paginationControl": {
           "offsetPagination": {
